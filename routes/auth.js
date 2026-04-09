@@ -25,7 +25,7 @@ router.post('/signup', async (req, res) => {
     // save user
     const user = new User({ name, email, password: hashedPassword });
     await user.save();
-
+    
     res.status(201).json({ message: "User registered successfully" });
 
   } catch (error) {
@@ -64,7 +64,7 @@ router.post('/login', async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
-
+ console.log("successfull");
     res.json({ message: "Login successful", token });
 
   } catch (error) {
